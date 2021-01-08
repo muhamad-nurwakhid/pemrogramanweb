@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style='border-style: dotted; width: 70%; margin: auto; padding: 40px; padding-bottom: 200px;'>
+        <div align='center'>
+            <h1>Form Pendaftaran Mahasiswa</h1>
+        </div><BR>
+        <div style="float: left; margin-right: 50px;">
+            <table border="0" cellpading="0" cellspacing="0">
+                <tr><td align="center"> </td></tr>
+                <tr>
+                    <td>
+                    <table width="450" border="0" cellpading="0" cellspacing="10" align="center">
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td><input type="text" id="nama" name="nama" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Jenis Kelamin</td>
+                            <td>:</td>
+                            <td>
+                                <input type="radio" id="jk" name="jk" value="Pria"><label for="Pria">Pria</label>
+                                <input type="radio" id="jk" name="jk" value="Wanita"><label for="Wanita">Wanita</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Prodi</td>
+                            <td>:</td>
+                            <td>
+                                <select name="prodi" id="prodi">
+                                <option id="prodi" value="Teknik Informatika">Teknik Informatika</option>
+                                <option id="prodi" value="Sistem Informasi">Sistem Informasi</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hobi</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="hobi" id="hobi" value="Coding"><label for="Coding">Coding</label>
+                                <input type="checkbox" name="hobi" id="hobi" value="Jalan-jalan"><label for="Jalan-jalan">Jalan-jalan</label>
+                                <input type="checkbox" name="hobi" id="hobi" value="Makan"><label for="makan">makan</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="submit" name="submit" value="Kirim" id="kirim" />
+                            </td>
+                            </tr>
+                    </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <table style="display: block; margin-top: 30px;">
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td id="hasilnama"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td id="hasiljk"></td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td>:</td>
+                    <td id="hasilprodi"></td>
+                </tr>
+                <tr>
+                    <td>Hobi</td>
+                    <td>:</td>
+                    <td id="hasilhobi"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        let kirim = document.getElementById("kirim");
+        kirim.addEventListener('click', function(){
+            let nama = document.getElementById("nama").value;
+            let jk = document.querySelector("input[name='jk']:checked").value;
+            let prodi = document.getElementById("prodi").value;
+            let array_hobi = document.querySelectorAll("input[name='hobi']:checked");
+            tempArray = [];
+            for(var i=0; i<array_hobi.length; i++)
+            {
+                tempArray.push(array_hobi[i].value);
+                hobi = tempArray.join(", ");
+            }
+    
+            document.getElementById("hasilnama").innerHTML = nama;
+            document.getElementById("hasiljk").innerHTML = jk;
+            document.getElementById("hasilprodi").innerHTML = prodi;
+            document.getElementById("hasilhobi").innerHTML = hobi;
+        });
+    </script>
+</body>
+</html>
